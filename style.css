@@ -1,0 +1,123 @@
+:root {
+    --primary: #0A1931;
+    --accent: #C5A059;
+    --text: #2D3142;
+    --bg-light: #F8FAFC;
+    --white: #FFFFFF;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); color: var(--text); line-height: 1.6; background-color: var(--white); }
+.container { width: 92%; max-width: 1200px; margin: 0 auto; }
+
+/* --- HEADER --- */
+.header {
+    background: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+
+.logo-text { display: flex; flex-direction: column; border-left: 4px solid var(--accent); padding-left: 15px; }
+.brand-name { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: var(--primary); line-height: 1; }
+.brand-sub { font-size: 0.65rem; font-weight: 600; color: var(--accent); letter-spacing: 1px; margin-top: 4px; }
+
+.header-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.address-box { text-align: right; max-width: 400px; }
+.address-label { font-size: 0.6rem; text-transform: uppercase; color: var(--accent); display: block; font-weight: 700; letter-spacing: 0.5px; }
+.address-text { font-size: 0.8rem; color: var(--text); font-weight: 500; display: block; line-height: 1.3; }
+
+.nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.85rem; margin-left: 20px; transition: 0.3s; }
+.nav a:hover { color: var(--accent); }
+.nav .btn-nav { background: var(--primary); color: var(--white); padding: 8px 15px; border-radius: 4px; }
+
+/* --- HERO --- */
+.hero {
+    height: 75vh;
+    background: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1920') center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,25,49,0.85); }
+.hero-content { position: relative; z-index: 2; margin: 0 auto; }
+.hero-pretitle { color: var(--accent); text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; margin-bottom: 15px; }
+.hero h1 { font-family: var(--font-serif); font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: 0.5px; }
+.hero-description { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 35px auto; font-weight: 300; }
+
+.btn-primary { 
+    display: inline-block; text-decoration: none; background: var(--accent); color: var(--white); 
+    padding: 15px 35px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;
+    transition: 0.3s;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
+
+/* --- SECCIONES --- */
+.services, .fiscal-section { padding: 80px 0; }
+.section-title { text-align: center; font-family: var(--font-serif); font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
+.section-subtitle { text-align: center; color: #64748b; font-size: 0.95rem; margin-bottom: 45px; }
+.section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent); margin: 15px auto; }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.card { background: var(--bg-light); padding: 40px; border-radius: 8px; text-align: center; transition: 0.3s; }
+.card:hover { transform: translateY(-5px); background: var(--white); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+.card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+/* --- TABS FISCALES (MENÚ EXPANDIDO A 5 TABS) --- */
+.tabs-container { max-width: 950px; margin: 0 auto; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; }
+.tab-switch { display: none; }
+.tab-label { display: inline-block; width: 20%; padding: 18px 10px; text-align: center; background: #edf2f7; cursor: pointer; font-weight: 600; font-size: 0.8rem; transition: 0.3s; color: #4a5568; border-bottom: 2px solid #e2e8f0; }
+.tab-label:hover { color: var(--primary); background: #e2e8f0; }
+
+.tab-content { display: none; padding: 40px; width: 100%; order: 6; }
+.tab-content h3 { font-family: var(--font-serif); color: var(--primary); margin-bottom: 5px; font-size: 1.5rem; }
+.tab-content h4 { font-family: var(--font-serif); color: var(--primary); margin: 20px 0 10px 0; font-size: 1.2rem; }
+
+#tab1:checked ~ .tab-label[for="tab1"], #tab2:checked ~ .tab-label[for="tab2"], 
+#tab3:checked ~ .tab-label[for="tab3"], #tab4:checked ~ .tab-label[for="tab4"],
+#tab5:checked ~ .tab-label[for="tab5"] { background: var(--primary); color: var(--white); border-bottom-color: var(--primary); }
+
+#tab1:checked ~ #content1, #tab2:checked ~ #content2, #tab3:checked ~ #content3, #tab4:checked ~ #content4, #tab5:checked ~ #content5 { display: block; }
+
+/* TABLAS Y BLOQUES FISCALES */
+.fundamento-meta { font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.5px; }
+.dof-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: var(--white); }
+.dof-table th { background: var(--primary); color: var(--white); padding: 12px; text-align: left; font-weight: 500; font-size: 0.9rem; }
+.dof-table td { padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; }
+.dof-table tr:nth-child(even) { background: #f8fafc; }
+.table-container { overflow-x: auto; margin: 15px 0; border: 1px solid #e2e8f0; border-radius: 4px; }
+
+.legal-blockquote { border-left: 4px solid var(--accent); padding: 15px; font-style: italic; margin: 15px 0; background: #fffdf5; color: #4a5568; font-size: 0.95rem; border-radius: 0 4px 4px 0; }
+.dof-list { margin: 15px 0 20px 20px; }
+.dof-list li { margin-bottom: 8px; font-size: 0.92rem; color: #334155; }
+.legal-note { font-size: 0.8rem; color: #718096; font-style: italic; margin-top: 10px; }
+
+/* --- FOOTER & WHATSAPP --- */
+.footer { background: var(--primary); color: var(--white); padding: 60px 0 30px; text-align: center; }
+.motivational-phrase { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; font-style: italic; opacity: 0.95; }
+.divider { width: 60px; height: 1px; background: rgba(255,255,255,0.2); margin: 20px auto; }
+.copyright { font-size: 0.8rem; opacity: 0.6; }
+
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 100; transition: 0.3s; }
+.whatsapp-icon { width: 30px; fill: white; }
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* --- DISEÑO RESPONSIVO --- */
+@media (max-width: 900px) {
+    .header-flex { flex-direction: column; text-align: center; gap: 15px; }
+    .header-right { align-items: center; text-align: center; }
+    .address-box { text-align: center; }
+    .nav { margin-top: 5px; }
+    .nav a { margin: 0 10px; }
+    .tab-label { width: 50%; border: 1px solid #e2e8f0; }
+    .hero h1 { font-size: 2.2rem; }
+}
